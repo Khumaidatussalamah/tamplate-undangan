@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const guestName = params.get('to') || params.get('nama');
   if (guestName) {
-    document.getElementById('guestNameDisplay').textContent = guestName;
+    const guestDisplay = document.getElementById('guestNameDisplay');
+    if (guestDisplay) guestDisplay.textContent = guestName;
   }
 
   // 2. Kontrol Musik & Buka Undangan
@@ -14,57 +15,67 @@ document.addEventListener('DOMContentLoaded', () => {
   const musicIcon = document.getElementById('musicIcon');
   const btnOpen = document.getElementById('btnOpenInvitation');
 
-  // Fungsi memperbarui ikon & animasi rotasi
   function updateMusicIcon() {
+    if (!musicIcon) return;
     if (isPlaying) {
-      // Musik berbunyi: ikon nada & berputar
       musicIcon.className = 'fa-solid fa-music spin';
     } else {
-      // Musik pause/mute: ikon speaker silang & berhenti berputar
       musicIcon.className = 'fa-solid fa-volume-xmark';
     }
   }
 
   function openInvitation() {
-    cover.classList.add('open');
+    if (cover) {
+      cover.classList.add('open');
+    }
 
-    // Memutar musik saat tombol Buka Undangan diklik
-    bgMusic.play().then(() => {
-      isPlaying = true;
-      updateMusicIcon();
-    }).catch((err) => {
-      console.log('Autoplay diblokir browser atau error:', err);
-      isPlaying = false;
-      updateMusicIcon();
-    });
+    // Eksekusi pemutaran musik secara aman (try-catch promise)
+    if (bgMusic) {
+      bgMusic.play().then(() => {
+        isPlaying = true;
+        updateMusicIcon();
+      }).catch((err) => {
+        console.warn('Audio diblokir browser atau file audio tidak ditemukan:', err);
+        isPlaying = false;
+        updateMusicIcon();
+      });
+    }
 
-    setTimeout(() => musicToggle.classList.add('visible'), 650);
+    if (musicToggle) {
+      setTimeout(() => musicToggle.classList.add('visible'), 650);
+    }
+
     setTimeout(() => {
-      cover.classList.add('hidden-cover');
+      if (cover) cover.classList.add('hidden-cover');
       document.body.classList.remove('locked');
     }, 1450);
   }
 
-  // PERBAIKAN PADA FUNGSI TOGGLE MUSIK
   function toggleMusic() {
+    if (!bgMusic) return;
     if (isPlaying) {
       bgMusic.pause();
       isPlaying = false;
-      updateMusicIcon(); // Langsung ganti ikon ke mute/tersilang
+      updateMusicIcon();
     } else {
       bgMusic.play().then(() => {
         isPlaying = true;
-        updateMusicIcon(); // Ganti ikon ke berputar saat lagu dikonfirmasi mulai berjalan
+        updateMusicIcon();
       }).catch((err) => {
-        console.log('Gagal memutar audio:', err);
+        console.warn('Gagal memutar lagu:', err);
         isPlaying = false;
         updateMusicIcon();
       });
     }
   }
 
-  if (btnOpen) btnOpen.addEventListener('click', openInvitation);
-  if (musicToggle) musicToggle.addEventListener('click', toggleMusic);
+  if (btnOpen) {
+    btnOpen.addEventListener('click', openInvitation);
+  }
+  
+  if (musicToggle) {
+    musicToggle.addEventListener('click', toggleMusic);
+  }
 
   // 3. Countdown Timer
   const targetDate = new Date('2026-10-24T08:00:00+07:00').getTime();
@@ -73,7 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const dist = targetDate - Date.now();
     const ids = ['days', 'hours', 'minutes', 'seconds'];
     if (dist <= 0) {
-      ids.forEach(id => document.getElementById(id).textContent = '00');
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = '00';
+      });
       return;
     }
     const d = Math.floor(dist / 86400000);
@@ -81,17 +95,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const m = Math.floor((dist % 3600000) / 60000);
     const s = Math.floor((dist % 60000) / 1000);
 
-    document.getElementById('days').textContent = String(d).padStart(2, '0');
-    document.getElementById('hours').textContent = String(h).padStart(2, '0');
-    document.getElementById('minutes').textContent = String(m).padStart(2, '0');
-    document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+    const elDays = document.getElementById('days');
+    const elHours = document.getElementById('hours');
+    const elMinutes = document.getElementById('minutes');
+    const elSeconds = document.getElementById('seconds');
+
+    if (elDays) elDays.textContent = String(d).padStart(2, '0');
+    if (elHours) elHours.textContent = String(h).padStart(2, '0');
+    if (elMinutes) elMinutes.textContent = String(m).padStart(2, '0');
+    if (elSeconds) elSeconds.textContent = String(s).padStart(2, '0');
   }
+  
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
   // 4. Salin Nomor Rekening
   async function copyAccount(targetId, button) {
-    const value = document.getElementById(targetId).textContent.replace(/\s+/g, '');
+    const targetEl = document.getElementById(targetId);
+    if (!targetEl) return;
+    const value = targetEl.textContent.replace(/\s+/g, '');
     try {
       await navigator.clipboard.writeText(value);
     } catch (e) {
@@ -127,9 +149,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('guestInputName').value.trim();
-      const attendance = document.getElementById('attendanceInput').value;
-      const message = document.getElementById('wishMessage').value.trim();
+      const nameInput = document.getElementById('guestInputName');
+      const attendanceInput = document.getElementById('attendanceInput');
+      const messageInput = document.getElementById('wishMessage');
+      const listEl = document.getElementById('wishesList');
+
+      if (!nameInput || !messageInput || !listEl) return;
+
+      const name = nameInput.value.trim();
+      const attendance = attendanceInput ? attendanceInput.value : 'Hadir';
+      const message = messageInput.value.trim();
+
       if (!name || !message) return;
 
       const item = document.createElement('div');
@@ -140,13 +170,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       item.innerHTML = `
         <div class="flex items-center justify-between gap-3">
-          <strong class="text-xs text-champagne2">${escapeHtml(name)}</strong>
-          <span class="text-[9px] ${badge} px-2 py-1 rounded-full">${escapeHtml(attendance)}</span>
+          <strong class="text-xs sm:text-sm text-champagne2">${escapeHtml(name)}</strong>
+          <span class="text-[9px] sm:text-xs ${badge} px-2.5 py-1 rounded-full">${escapeHtml(attendance)}</span>
         </div>
-        <p class="text-xs text-ivory/70 leading-relaxed mt-2">${escapeHtml(message)}</p>
+        <p class="text-xs sm:text-sm text-ivory/70 leading-relaxed mt-2">${escapeHtml(message)}</p>
         <span class="block text-[9px] text-ivory/30 mt-2">Baru saja</span>
       `;
-      document.getElementById('wishesList').prepend(item);
+      listEl.prepend(item);
       setTimeout(() => item.classList.remove('opacity-0', 'translate-y-3'), 30);
       rsvpForm.reset();
     });
