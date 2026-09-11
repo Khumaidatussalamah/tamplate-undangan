@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#082f28" />
+  <title>Wedding Invitation — Wooseok & Ji eun</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Tailwind Configuration Script -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pine: '#082f28',
+            pine2: '#0d463a',
+            pine3: '#135548',
+            sage: '#8ca991',
+            champagne: '#e4c56f',
+            champagne2: '#f5e5aa',
+            ivory: '#fbf6ea',
+            paper: '#efe5d2'
+          },
+          fontFamily: {
+            script: ['Great Vibes', 'cursive'],
+            classic: ['Libre Baskerville', 'serif'],
+            clean: ['DM Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="locked">
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="assets/audio/Rizky Febian Feat. Mahalini - Bermuara [Official Lyric Video] [GAf2DQPYvGE].mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Music Toggle Floating Button -->
+  <button id="musicToggle" aria-label="Kontrol musik">
+    <i id="musicIcon" class="fa-solid fa-music spin"></i>
+  </button>
+
+  <!-- COVER SECTION -->
+  <div id="cover">
+    <div class="cover-panel left"></div>
+    <div class="cover-panel right"></div>
+    <div class="paper-grain"></div>
+
+    <!-- Falling Petals -->
+    <div class="petal" style="left:8%;animation-duration:9s;animation-delay:1s"></div>
+    <div class="petal" style="left:19%;animation-duration:12s;animation-delay:4s"></div>
+    <div class="petal" style="left:34%;animation-duration:10s;animation-delay:2s"></div>
+    <div class="petal" style="left:51%;animation-duration:13s;animation-delay:5s"></div>
+    <div class="petal" style="left:69%;animation-duration:11s;animation-delay:3s"></div>
+    <div class="petal" style="left:84%;animation-duration:14s;animation-delay:0s"></div>
+    <div class="petal" style="left:94%;animation-duration:10s;animation-delay:6s"></div>
+
+    <!-- Upper-left Floral Ornament -->
+    <div class="botanical sway" style="width:220px;height:250px;left:-36px;top:-22px;z-index:15;">
+      <svg viewBox="0 0 220 250" aria-hidden="true">
+        <path d="M26 224 C55 176 55 116 80 60 C92 34 111 18 140 10"/>
+        <path d="M56 153 C24 141 20 117 37 98 C63 102 72 125 56 153Z" class="fill"/>
+        <path d="M73 112 C92 89 118 92 126 112 C113 133 88 132 73 112Z" class="fill"/>
+        <path d="M90 73 C72 51 79 29 101 23 C122 39 117 62 90 73Z" class="fill"/>
+        <path d="M117 43 C138 24 165 27 174 49 C156 68 130 66 117 43Z" class="fill"/>
+        <path d="M40 191 C22 175 26 153 44 147 C63 160 61 181 40 191Z" class="fill"/>
+        <path d="M126 112 C142 90 164 86 180 101 C179 125 154 136 126 112Z" class="fill"/>
+        <path d="M138 10 C155 14 164 27 164 42"/>
+        <ellipse cx="142" cy="11" rx="12" ry="7" class="fill"/>
+      </svg>
+    </div>
+
+    <!-- Bottom-right Floral Ornament -->
+    <div class="botanical sway-mirror" style="width:220px;height:250px;right:-36px;bottom:-24px;z-index:15;">
+      <svg viewBox="0 0 220 250" aria-hidden="true">
+        <path d="M26 224 C55 176 55 116 80 60 C92 34 111 18 140 10"/>
+        <path d="M56 153 C24 141 20 117 37 98 C63 102 72 125 56 153Z" class="fill"/>
+        <path d="M73 112 C92 89 118 92 126 112 C113 133 88 132 73 112Z" class="fill"/>
+        <path d="M90 73 C72 51 79 29 101 23 C122 39 117 62 90 73Z" class="fill"/>
+        <path d="M117 43 C138 24 165 27 174 49 C156 68 130 66 117 43Z" class="fill"/>
+        <path d="M40 191 C22 175 26 153 44 147 C63 160 61 181 40 191Z" class="fill"/>
+        <path d="M126 112 C142 90 164 86 180 101 C179 125 154 136 126 112Z" class="fill"/>
+        <path d="M138 10 C155 14 164 27 164 42"/>
+        <ellipse cx="142" cy="11" rx="12" ry="7" class="fill"/>
+      </svg>
+    </div>
+
+    <div class="cover-inner px-4 sm:px-8">
+      <p class="font-classic text-[10px] tracking-[.38em] uppercase text-champagne/80 mb-5">The Wedding Celebration Of</p>
+      <div class="divider"><span>✦</span></div>
+      
+      <!-- UKURAN TEKS SUDAH DISESUAIKAN DI SINI -->
+      <h1 class="font-script text-[38px] sm:text-[54px] md:text-[80px] leading-tight gold-text mt-2 whitespace-nowrap overflow-hidden text-ellipsis">
+        Wooseok & Ji eun
+      </h1>
+      
+      <p class="font-classic italic text-sm text-ivory/75 mt-5">Minggu, 24 Oktober 2026</p>
+      <div class="divider"><span>✦</span></div>
+      <p class="text-[11px] text-ivory/55 mb-3">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+      <div class="glass rounded-2xl px-6 py-4 mb-7">
+        <p id="guestNameDisplay" class="font-classic text-lg text-champagne2">Bp. Darmawan Sekeluarga</p>
+      </div>
+      <button id="btnOpenInvitation" class="open-btn rounded-full px-8 py-3.5 text-sm inline-flex items-center gap-3">
+        <i class="fa-regular fa-envelope-open"></i>
+        Buka Undangan
+        <i class="fa-solid fa-arrow-right text-xs"></i>
+      </button>
+    </div>
+  </div>
+  <!-- MAIN SITE SHELL -->
+  <main class="site-shell">
+    <div class="paper-grain"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="botanical sway" style="width:200px;height:230px;left:-34px;top:16px;">
+        <svg viewBox="0 0 220 250" aria-hidden="true">
+          <path d="M26 224 C55 176 55 116 80 60 C92 34 111 18 140 10"/>
+          <path d="M56 153 C24 141 20 117 37 98 C63 102 72 125 56 153Z" class="fill"/>
+          <path d="M73 112 C92 89 118 92 126 112 C113 133 88 132 73 112Z" class="fill"/>
+          <path d="M90 73 C72 51 79 29 101 23 C122 39 117 62 90 73Z" class="fill"/>
+          <path d="M117 43 C138 24 165 27 174 49 C156 68 130 66 117 43Z" class="fill"/>
+        </svg>
+      </div>
+      <div class="botanical sway-mirror" style="width:190px;height:220px;right:-28px;bottom:22px;">
+        <svg viewBox="0 0 220 250" aria-hidden="true">
+          <path d="M26 224 C55 176 55 116 80 60 C92 34 111 18 140 10"/>
+          <path d="M56 153 C24 141 20 117 37 98 C63 102 72 125 56 153Z" class="fill"/>
+          <path d="M73 112 C92 89 118 92 126 112 C113 133 88 132 73 112Z" class="fill"/>
+          <path d="M90 73 C72 51 79 29 101 23 C122 39 117 62 90 73Z" class="fill"/>
+          <path d="M117 43 C138 24 165 27 174 49 C156 68 130 66 117 43Z" class="fill"/>
+        </svg>
+      </div>
+
+      <div class="relative z-10 reveal">
+        <p class="mini-label text-champagne/75 font-classic">Walimatul 'Ursy</p>
+
+        <div class="hero-medallion mt-8">
+          <img src="assets/images/Couple.jpeg" alt="Byeon Woo-seok & Lee Ji-eun">
+        </div>
+
+        <h2 class="font-script text-6xl md:text-7xl gold-text">Wooseok & Ji eun</h2>
+        <p class="font-classic italic text-ivory/75 text-sm mt-3">Dua hati, satu perjalanan, satu janji.</p>
+        <div class="divider"><span>✦</span></div>
+        <p class="font-classic text-sm text-champagne2">24 • 10 • 2026</p>
+        <div class="mt-10 text-[10px] tracking-[.24em] uppercase text-ivory/40">Scroll untuk melihat undangan</div>
+        <i class="fa-solid fa-chevron-down text-champagne mt-3 animate-bounce"></i>
+      </div>
+    </section>
+
+    <!-- QURAN SECTION -->
+    <section class="section-pad">
+      <div class="paper-card rounded-[30px] px-7 py-10 reveal">
+        <p dir="rtl" class="font-classic text-center text-2xl md:text-3xl leading-loose text-[#5a4823] mb-6">
+          وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا
+          وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
+        </p>
+        <div class="divider !text-[#a57c1d]"><span>✦</span></div>
+        <p class="font-classic italic text-center text-sm leading-relaxed text-[#49645a]">
+          “Di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri
+          agar kamu merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa cinta dan kasih sayang.”
+        </p>
+        <p class="text-center mt-5 mini-label text-[#9a741f]">QS. Ar-Rum : 21</p>
+      </div>
+    </section>
+
+    <!-- COUPLE SECTION -->
+    <section class="section-pad pt-8">
+      <div class="text-center mb-12 reveal">
+        <p class="font-script text-5xl gold-text">Pasangan Mempelai</p>
+        <p class="mini-label text-ivory/45 mt-3">Dengan memohon rahmat & ridho Allah SWT</p>
+      </div>
+
+      <div class="grid gap-10">
+        <!-- Groom Card -->
+        <article class="glass profile-card reveal-left">
+          <div class="portrait-wrap">
+            <img src="assets/images/wooseok.jpeg" alt="Byeon Woo-seok">
+          </div>
+          <p class="font-script text-3xl text-champagne2 mt-7">The Groom</p>
+          <h3 class="font-classic text-2xl md:text-3xl text-ivory mt-1">Byeon Woo Seok, S.T.</h3>
+          <p class="font-classic text-sm text-ivory/65 leading-relaxed mt-4">
+            Putra pertama dari<br>
+            <span class="text-champagne2">Bpk. Bambang Setiawan</span> & <span class="text-champagne2">Ibu Sri Rahayu</span>
+          </p>
+          <a href="https://instagram.com" target="_blank" class="inline-flex items-center gap-2 mt-5 border border-champagne/25 px-4 py-2 rounded-full text-xs text-champagne hover:bg-champagne/10 transition">
+            <i class="fa-brands fa-instagram"></i> @Byeon Woo-Seok
+          </a>
+        </article>
+
+        <div class="text-center font-script text-6xl gold-text reveal">&</div>
+
+        <!-- Bride Card -->
+        <article class="glass profile-card reveal-right">
+          <div class="portrait-wrap">
+            <img src="assets/images/IU.jpeg" alt="Lee Ji-eun">
+          </div>
+          <p class="font-script text-3xl text-champagne2 mt-7">The Bride</p>
+          <h3 class="font-classic text-2xl md:text-3xl text-ivory mt-1">Lee Ji Eun, S.Ked</h3>
+          <p class="font-classic text-sm text-ivory/65 leading-relaxed mt-4">
+            Putri kedua dari<br>
+            <span class="text-champagne2">Bpk. H. Ahmad Dahlan</span> & <span class="text-champagne2">Ibu Hj. Siti Aminah</span>
+          </p>
+          <a href="https://instagram.com" target="_blank" class="inline-flex items-center gap-2 mt-5 border border-champagne/25 px-4 py-2 rounded-full text-xs text-champagne hover:bg-champagne/10 transition">
+            <i class="fa-brands fa-instagram"></i> @dlwlrma
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN & EVENTS SECTION -->
+    <section class="section-pad">
+      <div class="glass rounded-[32px] p-6 md:p-8 reveal">
+        <div class="text-center mb-8">
+          <p class="font-script text-4xl sm:text-5xl gold-text whitespace-nowrap leading-normal">
+            Save The Date
+          </p>
+          <p class="text-xs text-ivory/45 mt-2">Menuju hari bahagia kami</p>
+        </div>
+
+        <div class="grid grid-cols-4 gap-1.5 mb-8 w-fit mx-auto">
+          <div class="countdown-box"><strong id="days" class="block font-classic text-xl md:text-2xl gold-text">00</strong><span class="text-[9px] uppercase text-ivory/45">Hari</span></div>
+          <div class="countdown-box"><strong id="hours" class="block font-classic text-xl md:text-2xl gold-text">00</strong><span class="text-[9px] uppercase text-ivory/45">Jam</span></div>
+          <div class="countdown-box"><strong id="minutes" class="block font-classic text-xl md:text-2xl gold-text">00</strong><span class="text-[9px] uppercase text-ivory/45">Menit</span></div>
+          <div class="countdown-box"><strong id="seconds" class="block font-classic text-xl md:text-2xl gold-text">00</strong><span class="text-[9px] uppercase text-ivory/45">Detik</span></div>
+        </div>
+
+        <div class="grid gap-5">
+          <div class="paper-card event-card">
+            <div class="text-[#9a741f] text-2xl mb-3"><i class="fa-solid fa-ring"></i></div>
+            <p class="mini-label text-[#a17c27]">Akad Nikah</p>
+            <h3 class="font-classic text-2xl text-[#29483d] mt-2">Minggu, 24 Oktober 2026</h3>
+            <p class="text-sm text-[#587268] mt-3">08.00 WIB — Selesai</p>
+            <p class="text-xs text-[#587268] leading-relaxed mt-4"><i class="fa-solid fa-location-dot text-[#a17c27] mr-1"></i> Masjid Agung Sunda Kelapa, Menteng, Jakarta Pusat</p>
+          </div>
+
+          <div class="paper-card event-card">
+            <div class="text-[#9a741f] text-2xl mb-3"><i class="fa-solid fa-champagne-glasses"></i></div>
+            <p class="mini-label text-[#a17c27]">Resepsi Pernikahan</p>
+            <h3 class="font-classic text-2xl text-[#29483d] mt-2">Minggu, 24 Oktober 2026</h3>
+            <p class="text-sm text-[#587268] mt-3">11.00 WIB — 14.00 WIB</p>
+            <p class="text-xs text-[#587268] leading-relaxed mt-4"><i class="fa-solid fa-location-dot text-[#a17c27] mr-1"></i> Grand Ballroom Hotel Indonesia Kempinski, Jakarta</p>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Wooseok+%26+Ji+eun&dates=20261024T010000Z/20261024T070000Z&details=Pernikahan+Wooseok+dan+Ji+eun"
+             target="_blank" class="open-btn rounded-full px-6 py-3 text-xs inline-flex items-center gap-2 mt-7">
+            <i class="fa-regular fa-calendar-plus"></i> Simpan ke Kalender
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION SECTION -->
+     <section class="section-pad">
+      <div class="glass rounded-[32px] p-6 md:p-8 reveal">
+        <div class="text-center mb-8">
+          <p class="font-script text-4xl sm:text-5xl gold-text whitespace-nowrap leading-normal">
+            Lokasi Acara
+          </p>
+          <p class="text-xs text-ivory/45 mt-2">Petunjuk menuju venue</p>
+        </div>
+      <div class="glass rounded-[30px] p-3 mt-8 reveal">
+        <div class="rounded-[22px] overflow-hidden h-[280px] border border-champagne/20">
+          <iframe src="https://www.google.com/maps?q=Hotel%20Indonesia%20Kempinski%20Jakarta&output=embed"
+                  width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="text-center">
+          <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Indonesia+Kempinski+Jakarta"
+             target="_blank" class="open-btn rounded-full px-6 py-3 text-xs inline-flex items-center gap-2 my-4">
+            <i class="fa-solid fa-location-arrow"></i> Buka Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+  <section class="section-pad">
+    <div class="text-center reveal">
+      <!-- UKURAN TEKS JUDUL DISESUAIKAN -->
+      <p class="font-script text-3xl sm:text-4xl md:text-5xl gold-text whitespace-nowrap leading-tight">
+        Galeri Bahagia
+      </p>
+      <p class="mini-label text-ivory/40 mt-3 mb-8">Momen yang kami simpan dalam cerita</p>
+    </div>
+
+      <div class="gallery reveal">
+        <figure><img src="assets/images/wooseok.jpeg" alt="Byeon Woo-seok portrait"></figure>
+        <figure><img src="assets/images/IU.jpeg" alt="IU portrait"></figure>
+        <figure class="wide"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85" alt="Wedding detail"></figure>
+        <figure><img src="assets/images/Couple.jpeg" alt="Wedding gallery"></figure>
+        <figure><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=85" alt="Wedding rings"></figure>
+      </div>
+    </section>
+
+    <!-- GIFT SECTION -->
+    <section class="section-pad">
+      <div class="paper-card rounded-[30px] p-7 reveal">
+        <div class="text-center">
+          <div class="text-[#a17c27] text-3xl"><i class="fa-solid fa-gift"></i></div>
+          <h3 class="font-classic text-2xl text-[#29483d] mt-3">Tanda Kasih</h3>
+          <p class="font-classic italic text-sm text-[#587268] leading-relaxed mt-4">
+            Doa restu Anda adalah hadiah terindah bagi kami. Apabila ingin memberikan tanda kasih,
+            dapat disalurkan melalui rekening berikut.
+          </p>
+        </div>
+
+        <div class="mt-7 grid gap-4">
+          <div class="rounded-2xl bg-[#0d463a] text-ivory p-5 border border-[#d5b55a]/25">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-champagne2">BANK BCA</span>
+              <i class="fa-regular fa-credit-card text-champagne/50"></i>
+            </div>
+            <p class="text-[9px] uppercase tracking-[.2em] text-ivory/40 mt-5">Nomor Rekening</p>
+            <p id="rekeningBCA" class="font-mono tracking-widest mt-1">1234 5678 90</p>
+            <p class="text-xs text-champagne2 mt-1">a.n Byeon Woo Seok</p>
+            <button class="btn-copy mt-4 text-[10px] border border-champagne/25 rounded-full px-4 py-2 text-champagne hover:bg-champagne/10 transition" data-target="rekeningBCA">
+              <i class="fa-regular fa-copy mr-1"></i> Salin Rekening
+            </button>
+          </div>
+
+          <div class="rounded-2xl bg-[#0d463a] text-ivory p-5 border border-[#d5b55a]/25">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-champagne2">BANK MANDIRI</span>
+              <i class="fa-regular fa-credit-card text-champagne/50"></i>
+            </div>
+            <p class="text-[9px] uppercase tracking-[.2em] text-ivory/40 mt-5">Nomor Rekening</p>
+            <p id="rekeningMandiri" class="font-mono tracking-widest mt-1">9876 5432 10</p>
+            <p class="text-xs text-champagne2 mt-1">a.n Lee Ji Eun</p>
+            <button class="btn-copy mt-4 text-[10px] border border-champagne/25 rounded-full px-4 py-2 text-champagne hover:bg-champagne/10 transition" data-target="rekeningMandiri">
+              <i class="fa-regular fa-copy mr-1"></i> Salin Rekening
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP SECTION -->
+     <section class="section-pad">
+    <div class="text-center reveal">
+      <p class="font-script text-3xl sm:text-4xl md:text-5xl gold-text whitespace-nowrap leading-tight">
+        Ucapan & Doa
+      </p>
+      <p class="mini-label text-ivory/40 mt-3 mb-8">Berikan doa terbaik untuk kedua mempelai</p>
+    </div>
+        <form id="rsvpForm" class="space-y-4">
+          <input id="guestInputName" required placeholder="Nama Anda"
+                 class="w-full bg-[#041f1a]/65 border border-champagne/20 rounded-xl px-4 py-3 text-xs outline-none focus:border-champagne">
+          <select id="attendanceInput"
+                  class="w-full bg-[#041f1a]/65 border border-champagne/20 rounded-xl px-4 py-3 text-xs outline-none focus:border-champagne">
+            <option>Hadir</option>
+            <option>Tidak Hadir</option>
+            <option>Ragu-ragu</option>
+          </select>
+          <textarea id="wishMessage" required rows="4" placeholder="Tuliskan ucapan dan doa..."
+                    class="w-full bg-[#041f1a]/65 border border-champagne/20 rounded-xl px-4 py-3 text-xs outline-none resize-none focus:border-champagne"></textarea>
+          <button type="submit" class="open-btn w-full rounded-xl py-3.5 text-xs">
+            <i class="fa-regular fa-paper-plane mr-2"></i>Kirim Ucapan
+          </button>
+        </form>
+
+        <div id="wishesList" class="mt-7 space-y-3 max-h-80 overflow-y-auto pr-1">
+          <div class="bg-[#041f1a]/55 border border-champagne/15 rounded-xl p-4">
+            <div class="flex items-center justify-between gap-3">
+              <strong class="text-xs text-champagne2">Rizal & Partner</strong>
+              <span class="text-[9px] bg-[#135548]/60 px-2 py-1 rounded-full text-champagne2">Hadir</span>
+            </div>
+            <p class="text-xs text-ivory/70 leading-relaxed mt-2">Selamat Seok dan Ji eun. Semoga menjadi keluarga yang sakinah, mawaddah, warahmah.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING SECTION -->
+    <section class="section-pad text-center overflow-hidden">
+      <div class="botanical sway" style="width:170px;height:190px;left:-24px;bottom:-8px;">
+        <svg viewBox="0 0 220 250" aria-hidden="true">
+          <path d="M26 224 C55 176 55 116 80 60 C92 34 111 18 140 10"/>
+          <path d="M56 153 C24 141 20 117 37 98 C63 102 72 125 56 153Z" class="fill"/>
+          <path d="M73 112 C92 89 118 92 126 112 C113 133 88 132 73 112Z" class="fill"/>
+          <path d="M90 73 C72 51 79 29 101 23 C122 39 117 62 90 73Z" class="fill"/>
+        </svg>
+      </div>
+
+      <div class="relative z-10 reveal">
+        <p class="font-classic italic text-sm text-ivory/68 leading-relaxed max-w-md mx-auto">
+          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i
+          berkenan hadir dan memberikan doa restu kepada kami.
+        </p>
+        <div class="divider"><span>✦</span></div>
+        <p class="mini-label text-ivory/40">Kami yang berbahagia</p>
+        <h3 class="font-script text-3xl sm:text-4xl md:text-6xl gold-text mt-3 whitespace-nowrap leading-tight"> Wooseok & Ji eun</h3>
+<p class="font-classic text-xs text-champagne2 mt-3">Beserta keluarga besar kedua mempelai</p>
+        <footer class="mt-14 pt-5 border-t border-champagne/10 text-[9px] uppercase tracking-[.2em] text-ivory/25">
+          Wedding Invitation • 24 October 2026
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- Custom JavaScript File -->
+  <script src="js/script.js"></script>
+</body>
+</html>
